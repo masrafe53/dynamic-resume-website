@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body class="home">
+<main id="main">
+
+	<div class="container">
+		
+		<div class="row section topspace">
+			<div class="col-md-12">
+				{% for i in myself %}
+				<p class="lead text-center text-muted">{{ i.details }}</div>
+				{% endfor %}
+		</div> <!-- / section -->	
+		<div class="row section recentworks topspace">
+			
+			<h2 class="section-title"><span>SERVICES</span></h2>
+			{% for service in services %}
+			<div class="thumbnails recentworks row">
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+					<a class="thumbnail" href="{% url 'service' service.id %}">
+						<span class="img">
+							<img src="{{service.img.url}}" alt="">
+							<span class="cover"><span class="more">See details &rarr;</span></span>
+						</span>
+						<span class="title">{{ service.title }}</span>
+					</a>
+					<span class="details"><a href="">{{service.category}}</a></span>
+					<h4></h4>
+					<p>{{ work.dis }}</p>
+					
+				</div>
+				{% endfor %}
+			</div>
+
+		</div> <!-- /section -->
+
+				<!-- work section -->
+				<div class="thumbnails recentworks row">
+					<h2 class="section-title"><span>Recent work</span></h2>
+					{% for work in recentwork %}
+
+					<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+						<a class="thumbnail" href="{% url 'work' work.id %}">
+							<span class="img">
+								<img src="{{ work.img.url }}" alt="">
+								<span class="cover"><span class="more"> details &rarr;</span>
+							</span>
+							<span class="title">{{work.title}}</span>
+						</a>
+						<span class="details"><a href="">{{work.category}}</a></span>
+						<h4></h4>
+					</div>
+					{% endfor %}
+				</div> <!-- / section end -->
+
+		<div class="row section clients topspace">
+			<h2 class="section-title"><span>Clients</span></h2>
+			<div class="col-lg-12">
+				<p>
+					<img src="{% static 'images/sample_clients.png' %}" alt="">
+				</p>
+			</div>
+		</div> <!-- /section -->
+
+	</div>	<!-- /container -->
+
+</main>
+
+{% endblock content %}

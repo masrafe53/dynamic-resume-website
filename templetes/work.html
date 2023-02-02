@@ -1,0 +1,26 @@
+
+			{% extends 'base.html' %}
+			{% block content %}			
+			<main id="main">
+			
+				<div class="container">
+					<div class="row topspace">
+						<div class="col-sm-8 col-sm-offset-2">
+																		
+							<article class="post">
+								<header class="entry-header">
+									<div class="entry-meta"> 
+										<span class="posted-on"><time class="entry-date published" date="2013-09-27">{{p.time}}</time></span>			
+									</div>
+									<h1 class="entry-title">{{work.title}}</h1>
+								</header>
+								<div class="entry-title">
+								<img src="{{work.img.url}}">
+							</div>
+								<div class="entry-content">
+									<p>{{ work.dis }}</p>
+								</div>
+							</article>
+						</div> 
+					</div>
+					{% endblock %}
